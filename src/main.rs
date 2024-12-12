@@ -16,3 +16,15 @@ fn main() {
         graph.node_count(),
         graph.edge_count()
     );
+
+    println!("Performing graph analysis...");
+    let analyzer = GraphAnalyzer::new(&graph);
+
+    let avg_path_length = analyzer.average_shortest_path_length();
+    println!("Average shortest path length: {:.2}", avg_path_length);
+
+    let typical_distance = analyzer.analyze_random_pairs(100);
+    println!("Typical distance between 100 random pairs of users: {:.2}", typical_distance);
+
+    println!("Graph analysis complete!");
+}
