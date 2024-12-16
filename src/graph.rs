@@ -8,7 +8,6 @@ pub fn load_combined_graph(folder_path: &str) -> io::Result<UnGraph<u32, ()>> {
     let mut graph = UnGraph::<u32, ()>::new_undirected();
     let mut node_indices = HashMap::new();
 
-    // Read all files ending with .edges
     for entry in fs::read_dir(folder_path)? {
         let path = entry?.path();
         if path.extension().map_or(false, |ext| ext == "edges") {
